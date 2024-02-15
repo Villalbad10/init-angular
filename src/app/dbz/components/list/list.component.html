@@ -1,11 +1,13 @@
 <ul class="list-group">
   <li *ngFor="let character of characterList; let i = index; let isFirst = first; let isLast = last; let isEven=even"
-    class="list-group-item">
+    class="list-group-item" [ngClass]="{'list-group-item-success':isLast, 'list-group-item-primary':isFirst} ">
     <span> {{i}} </span>
     {{character.name}} - Power: {{character.power}}
 
     <span>primero: {{isFirst}}</span><br>
     <span>Utimo: {{isLast}}</span><br>
     <span>Par: {{isEven}}</span>
+
+    <button (click)="onDeleteCharacter(i)" class=" btn btn-danger">X</button>
   </li>
 </ul>
